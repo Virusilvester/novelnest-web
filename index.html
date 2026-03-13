@@ -634,27 +634,27 @@
   </footer>
 
   <script>
-    const GITHUB_REPO = 'Virusilvester/NovelNest';
-
     let allReleases = [];
     let currentChannel = 'stable';
 
     async function fetchReleases() {
       try {
-        const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/releases?per_page=20`);
-        if (!res.ok) throw new Error('Failed to fetch releases');
+        // releases.json is served as a static file from this same repo — no auth needed
+        const res = await fetch('./releases.json?t=' + Date.now());
+        if (!res.ok) throw new Error('releases.json not found');
         allReleases = await res.json();
 
-        // Default to beta channel if there is no stable release yet
-        const hasStable = allReleases.some(r => !r.prerelease && !r.draft);
-        if (!hasStable) switchChannel('beta');
-        else switchChannel('stable');
+        // Default to beta if no stable release exists yet
+        const hasStable = allReleases.some(r => !r.prerelease);
+        switchChannel(hasStable ? 'stable' : 'beta');
 
       } catch (e) {
         document.getElementById('nav-version').textContent = '';
-        document.getElementById('version-badge').textContent = 'See GitHub for the latest release';
+        document.getElementById('version-badge').textContent = 'No releases yet — check back soon';
         document.querySelectorAll('#download-btn, #download-btn-2').forEach(btn => {
-          btn.href = `https://github.com/${GITHUB_REPO}/releases/latest`;
+          btn.removeAttribute('href');
+          btn.style.opacity = '0.5';
+          btn.style.pointerEvents = 'none';
         });
       }
     }
@@ -662,48 +662,44 @@
     function switchChannel(channel) {
       currentChannel = channel;
 
-      // Toggle button states
       document.getElementById('btn-stable').classList.toggle('active', channel === 'stable');
       document.getElementById('btn-beta').classList.toggle('active', channel === 'beta');
 
-      // Show/hide beta warning banner
       const banner = document.getElementById('beta-banner');
       banner.classList.toggle('show', channel === 'beta');
 
-      // Pick the right release
+      // Pick the right release from the local manifest
       const release = channel === 'beta'
-        ? allReleases.find(r => !r.draft) // latest of any type (pre-release or stable)
-        : allReleases.find(r => !r.prerelease && !r.draft); // latest stable only
+        ? allReleases[0]                                      // newest overall
+        : allReleases.find(r => !r.prerelease);              // newest stable
 
       if (!release) {
-        const label = channel === 'beta' ? 'No beta releases yet' : 'No stable releases yet';
+        const label = channel === 'beta' ? 'No beta releases yet' : 'No stable releases yet — try Beta channel';
         document.getElementById('nav-version').textContent = '';
         document.getElementById('version-badge').textContent = label;
         document.querySelectorAll('#download-btn, #download-btn-2').forEach(btn => {
-          btn.href = `https://github.com/${GITHUB_REPO}/releases`;
-          btn.textContent = 'View Releases';
+          btn.style.opacity = '0.5';
+          btn.style.pointerEvents = 'none';
         });
         return;
       }
 
-      const version = release.tag_name;
-      const apk = release.assets.find(a => a.name.endsWith('.apk'));
-      const downloadUrl = apk ? apk.browser_download_url : release.html_url;
-      const publishedAt = new Date(release.published_at).toLocaleDateString('en-US', {
+      const publishedAt = new Date(release.published).toLocaleDateString('en-US', {
         year: 'numeric', month: 'long', day: 'numeric'
       });
       const preTag = release.prerelease ? ' · Pre-release' : '';
 
-      // Update download buttons
+      // APK is a relative path served directly from this Pages site
       document.querySelectorAll('#download-btn, #download-btn-2').forEach(btn => {
-        btn.href = downloadUrl;
+        btn.href = release.apk;
         btn.setAttribute('download', '');
+        btn.style.opacity = '';
+        btn.style.pointerEvents = '';
       });
 
-      // Update version displays
-      document.getElementById('nav-version').textContent = version + (release.prerelease ? ' β' : '');
-      document.getElementById('version-badge').textContent = `${version}${preTag} · Released ${publishedAt}`;
-      document.getElementById('footer-version').textContent = `Latest: ${version}`;
+      document.getElementById('nav-version').textContent = release.version + (release.prerelease ? ' β' : '');
+      document.getElementById('version-badge').textContent = `${release.version}${preTag} · Released ${publishedAt}`;
+      document.getElementById('footer-version').textContent = `Latest: ${release.version}`;
     }
 
     fetchReleases();

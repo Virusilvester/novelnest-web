@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NovelNest — Your Personal Reading Sanctuary</title>
-  <meta name="description" content="NovelNest is a beautiful Android reading app. Discover, collect and immerse yourself in stories." />
+  <title>NovelNest — Light Novel & Web Novel Reader</title>
+  <meta name="description" content="NovelNest is a free, open-source light novel and web novel reader for Android. Read from multiple sources, download for offline, and customize your experience." />
 
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://virusilvester.github.io/novelnest-web/" />
-  <meta property="og:title"       content="NovelNest — Your Personal Reading Sanctuary" />
-  <meta property="og:description" content="A beautiful Android reading app. Dive into stories without distraction." />
+  <meta property="og:title"       content="NovelNest — Light Novel & Web Novel Reader" />
+  <meta property="og:description" content="Read light novels and web novels from multiple sources. Free, open-source, and offline-capable." />
   <meta property="og:image"       content="https://virusilvester.github.io/novelnest-web/preview.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type"   content="image/png" />
-  <meta property="og:image:alt"    content="NovelNest — a book reading app for Android" />
+  <meta property="og:image:alt"    content="NovelNest — Light Novel Reader for Android" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:url"         content="https://virusilvester.github.io/novelnest-web/" />
-  <meta name="twitter:title"       content="NovelNest — Your Personal Reading Sanctuary" />
-  <meta name="twitter:description" content="A beautiful Android reading app. Dive into stories without distraction." />
+  <meta name="twitter:title"       content="NovelNest — Light Novel & Web Novel Reader" />
+  <meta name="twitter:description" content="Read light novels and web novels from multiple sources. Free, open-source, and offline-capable." />
   <meta name="twitter:image"       content="https://virusilvester.github.io/novelnest-web/preview.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,6 +39,7 @@
       --cream:     #f0e6d0;
       --muted:     #7a7a8c;
       --text:      #e8e0d0;
+      --accent:    #6b8cae;
     }
 
     html { scroll-behavior: smooth; }
@@ -162,7 +163,7 @@
     .hero-sub {
       font-size: 1.1rem;
       color: var(--muted);
-      max-width: 500px;
+      max-width: 520px;
       margin: 0 auto 3rem;
       font-weight: 300;
       opacity: 0;
@@ -263,7 +264,7 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -301,17 +302,74 @@
 
     .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-    /* ── Install steps ── */
-    .install {
+    /* ── Sources Section ── */
+    .sources {
       padding: 6rem 2rem;
       background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .install-inner {
+    .sources-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+      text-align: left;
+    }
+
+    .source-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: border-color 0.2s;
+    }
+
+    .source-item:hover { border-color: var(--gold-dim); }
+
+    .source-icon {
+      width: 32px; height: 32px;
+      background: rgba(201,168,76,0.1);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .source-icon svg { width: 16px; height: 16px; }
+
+    .source-info h4 {
+      font-size: 0.9rem;
+      color: var(--cream);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .source-info p {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── Install steps ── */
+    .install {
+      padding: 6rem 2rem;
       max-width: 680px;
       margin: 0 auto;
+    }
+
+    .install-inner {
       text-align: center;
     }
 
@@ -474,6 +532,7 @@
     @media (max-width: 640px) {
       nav { padding: 1rem 1.25rem; }
       .features-grid { grid-template-columns: 1fr; }
+      .sources-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
     }
   </style>
@@ -490,8 +549,8 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-eyebrow">For Android</div>
-      <h1>Your <em>reading</em><br>sanctuary</h1>
-      <p class="hero-sub">Dive into stories without distraction. NovelNest gives every book the immersive home it deserves.</p>
+      <h1>Your <em>light novel</em><br>companion</h1>
+      <p class="hero-sub">Read light novels and web novels from multiple online sources. Download chapters for offline reading, track your progress, and customize every aspect of your experience.</p>
 
       <div class="hero-cta">
         <a href="#" class="btn-download" id="download-btn">
@@ -502,7 +561,7 @@
           </svg>
           Download APK
         </a>
-        <a href="https://github.com/virusilvester/NovelNest/releases" target="_blank" class="btn-secondary">
+        <a href="https://github.com/Virusilvester/NovelNest/releases" target="_blank" class="btn-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
           </svg>
@@ -532,62 +591,126 @@
 
   <!-- Features -->
   <section class="features">
-    <p class="section-label">What's inside</p>
-    <h2 class="section-title">Built for readers</h2>
+    <p class="section-label">Features</p>
+    <h2 class="section-title">Built for novel readers</h2>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
           </svg>
         </div>
-        <h3>Immersive Reading</h3>
-        <p>Distraction-free reading mode with customizable fonts, spacing, and themes crafted for long sessions.</p>
+        <h3>Multiple Sources</h3>
+        <p>Connect to various light novel and web novel sources. Browse popular titles or search for specific novels across different platforms.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
         </div>
-        <h3>Personal Library</h3>
-        <p>Organize your collection with shelves, tags, and reading lists. Your library, your rules.</p>
+        <h3>Offline Reading</h3>
+        <p>Download chapters ahead of time and read anywhere — on planes, trains, or anywhere without signal. Your library stays with you.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="9" y1="21" x2="9" y2="9"/>
           </svg>
         </div>
-        <h3>Reading Progress</h3>
-        <p>Track time spent reading, pages turned, and streaks. Watch your reading habit grow day by day.</p>
+        <h3>Library Management</h3>
+        <p>Organize your reading with custom categories, reading lists, and update tracking. Never lose track of where you left off.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
           </svg>
         </div>
-        <h3>Bookmarks & Notes</h3>
-        <p>Highlight passages and jot down thoughts without ever leaving the page.</p>
+        <h3>Customizable Reader</h3>
+        <p>Adjust fonts, spacing, themes, and reading direction. Paged or continuous scrolling — read however feels most comfortable.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
         </div>
-        <h3>Offline First</h3>
-        <p>Your books travel with you. No internet required — read on planes, trains, or mountain tops.</p>
+        <h3>Update Tracking</h3>
+        <p>Get notified when new chapters are released. Batch refresh your library and jump straight into newly available content.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
         </div>
-        <h3>Free & Open</h3>
-        <p>No subscriptions. No ads. No accounts required. Just you and your books.</p>
+        <h3>Privacy First</h3>
+        <p>No ads, no analytics, no accounts required. Your reading data stays on your device. Open source and completely free.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sources Section -->
+  <section class="sources">
+    <div class="sources-inner">
+      <p class="section-label">Sources</p>
+      <h2 class="section-title">Read from anywhere</h2>
+      <p style="color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+        NovelNest supports multiple sources so you can access light novels and web novels from various platforms, all in one place.
+      </p>
+      <div class="sources-grid">
+        <div class="source-item">
+          <div class="source-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="source-info">
+            <h4>Light Novels</h4>
+            <p>JP & CN translations</p>
+          </div>
+        </div>
+        <div class="source-item">
+          <div class="source-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <div class="source-info">
+            <h4>Web Novels</h4>
+            <p>Original series</p>
+          </div>
+        </div>
+        <div class="source-item">
+          <div class="source-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div class="source-info">
+            <h4>Multiple Languages</h4>
+            <p>EN, JP, CN & more</p>
+          </div>
+        </div>
+        <div class="source-item">
+          <div class="source-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <div class="source-info">
+            <h4>Local Files</h4>
+            <p>EPUB support</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -615,15 +738,15 @@
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h4>Open and install</h4>
-            <p>Tap the downloaded file from your notifications or Downloads folder. Follow the on-screen prompts to complete installation.</p>
+            <h4>Install and add sources</h4>
+            <p>Install the app, then browse the source catalog to add your favorite light novel and web novel platforms.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-content">
             <h4>Start reading</h4>
-            <p>Open NovelNest, import your books, and settle in. Happy reading.</p>
+            <p>Search for novels, add them to your library, and download chapters for offline reading. Happy reading!</p>
           </div>
         </div>
       </div>
@@ -632,8 +755,8 @@
 
   <!-- CTA -->
   <section class="cta-section">
-    <h2>Ready to start reading?</h2>
-    <p>Free forever. No sign-up needed. Just download and read.</p>
+    <h2>Start reading today</h2>
+    <p>Free forever. No sign-up needed. Just install and discover your next favorite series.</p>
     <a href="#" class="btn-download" id="download-btn-2">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -647,7 +770,7 @@
   <!-- Footer -->
   <footer>
     <div class="logo">Novel<span>Nest</span></div>
-    <p>Released under the MIT License &nbsp;·&nbsp; <a href="https://github.com/virusilvester/NovelNest" target="_blank">GitHub</a></p>
+    <p>Released under the MIT License &nbsp;·&nbsp; <a href="https://github.com/Virusilvester/NovelNest" target="_blank">GitHub</a></p>
     <p id="footer-version" style="font-size:0.75rem; color: var(--muted);"></p>
   </footer>
 

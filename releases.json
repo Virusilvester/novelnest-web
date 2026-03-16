@@ -1,5 +1,12 @@
 [
   {
+    "version": "v2.0.4-beta",
+    "apk": "https://github.com/Virusilvester/NovelNest/releases/download/v2.0.4-beta/NovelNest-v2.0.4-beta.apk",
+    "prerelease": true,
+    "published": "2026-03-16T20:45:31Z",
+    "notes": "NovelNest v2.0.4-beta"
+  },
+  {
     "version": "v2.0.3-beta",
     "apk": "https://github.com/Virusilvester/NovelNest/releases/download/v2.0.3-beta/NovelNest-v2.0.3-beta.apk",
     "prerelease": true,

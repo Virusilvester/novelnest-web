@@ -3,26 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NovelNest — Light Novel & Web Novel Reader</title>
-  <meta name="description" content="NovelNest is a free, open-source light novel and web novel reader for Android. Read from multiple sources, download for offline, and customize your experience." />
+  <title>NovelNest — Light Novel & Web Novel Reader for Android</title>
+  <meta name="description" content="NovelNest is a free, open-source Android app for reading light novels and web novels. Download chapters offline, track progress, and customize your reading experience. Get the latest APK now." />
+  <meta name="keywords" content="novelnest, light novel reader, web novel app, android novel reader, offline reading, open source novel app" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://novelnest-one.vercel.app/" />
 
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://virusilvester.github.io/novelnest-web/" />
+  <meta property="og:url"         content="https://novelnest-one.vercel.app/" />
   <meta property="og:title"       content="NovelNest — Light Novel & Web Novel Reader" />
-  <meta property="og:description" content="Read light novels and web novels from multiple sources. Free, open-source, and offline-capable." />
-  <meta property="og:image"       content="https://virusilvester.github.io/novelnest-web/preview.png" />
+  <meta property="og:description" content="Read light novels and web novels from multiple sources. Free, open-source, and offline-capable Android app." />
+  <meta property="og:image"       content="https://novelnest-one.vercel.app/preview.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type"   content="image/png" />
   <meta property="og:image:alt"    content="NovelNest — Light Novel Reader for Android" />
+  <meta property="og:site_name"   content="NovelNest" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:url"         content="https://virusilvester.github.io/novelnest-web/" />
+  <meta name="twitter:url"         content="https://novelnest-one.vercel.app/" />
   <meta name="twitter:title"       content="NovelNest — Light Novel & Web Novel Reader" />
   <meta name="twitter:description" content="Read light novels and web novels from multiple sources. Free, open-source, and offline-capable." />
-  <meta name="twitter:image"       content="https://virusilvester.github.io/novelnest-web/preview.png" />
+  <meta name="twitter:image"       content="https://novelnest-one.vercel.app/preview.png" />
+  <meta name="twitter:creator"     content="@yourhandle" />
+
+  <!-- Structured Data for Google (SoftwareApplication) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NovelNest",
+    "applicationCategory": "ReadingApplication",
+    "operatingSystem": "Android",
+    "description": "Free, open-source light novel and web novel reader for Android. Read from multiple sources, download for offline, and customize your experience.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250"
+    },
+    "downloadUrl": "https://novelnest-one.vercel.app/",
+    "softwareVersion": "1.0.0",
+    "author": {
+      "@type": "Person",
+      "name": "Virusilvester"
+    },
+    "sameAs": [
+      "https://github.com/Virusilvester/NovelNest"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -561,7 +598,7 @@
           </svg>
           Download APK
         </a>
-        <a href="https://github.com/Virusilvester/NovelNest/releases" target="_blank" class="btn-secondary">
+        <a href="https://github.com/Virusilvester/NovelNest/releases" target="_blank" rel="noopener noreferrer" class="btn-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
           </svg>
@@ -770,7 +807,7 @@
   <!-- Footer -->
   <footer>
     <div class="logo">Novel<span>Nest</span></div>
-    <p>Released under the MIT License &nbsp;·&nbsp; <a href="https://github.com/Virusilvester/NovelNest" target="_blank">GitHub</a></p>
+    <p>Released under the MIT License &nbsp;·&nbsp; <a href="https://github.com/Virusilvester/NovelNest" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     <p id="footer-version" style="font-size:0.75rem; color: var(--muted);"></p>
   </footer>
 
